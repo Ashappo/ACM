@@ -19,8 +19,8 @@ int main(){
     cin>>n>>m;
     /*int N = 10, M = 5;
    vector<vector<int> > obj(N, vector<int>(M));*/
-    clock_t starttime, endtime;
-    starttime = clock();//pac记得去掉!!
+    //clock_t starttime, endtime;
+   // starttime = clock();//pac记得去掉!!
     memset(a, 0, sizeof(a));
 //    vector<int> b(n, 0);
 //    while(n--){}
@@ -41,8 +41,8 @@ int main(){
         cout<<"\n";
     }*/
 
-    endtime = clock();
-    cout<<"time:"<<double(endtime -starttime)<<"ms";//pac记得去掉!!
+    //endtime = clock();
+    //cout<<"time:"<<double(endtime -starttime)<<"ms";//pac记得去掉!!
     return 0;
 }
 ```
