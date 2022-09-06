@@ -42,17 +42,17 @@ class Solution {
             res.push_back(cur);
             return;
         }
-        int start = x == 0 ? 1 : 0; //pac:字符串构造时从0-9，但是对首位应该特判，数字不可能出现首位为0的情况，所以dfs(0,len)时，x==0,表示再构造第一个元素，不能为0。
+        int start = x == 0 ? 1 : 0; //pac:字符串构造时从0-9，但是对首位应该特判，数字不可能出现首位为0的情况，所以dfs(0,len)时，x==0,表示在构造第一个元素，不能为0。
         for(int i = start; i < 10; i++) {
             cur.push_back(NUM[i]); // 确定本位数字
             dfs(x + 1, len); // 确定下一位数字，不断递归，每次递归的终点即为上面的(x==len)，并且已经将cur插入res，那么下面应该将本轮插入的num[i]变为nums[i+1]，所以将cur.pop_back()!!!而不是将cur变为空串cur= "";
-            //cur = ""//pac错误，
+            //cur = ""//pac错误，不是将cur置空，而是删去前一位cur.push_back(NUM[i]);的元素。
             cur.pop_back(); // pac删除本位数字,进入下一次循环，插入下一个数cur.push_back(NUM[i]); 
         }
     }
 public:
     vector<int> printNumbers(int n) {
-        for(int i=1; i<=n; i++) // 数字长度：1~n
+        for(int i=1; i<=n; i++) // 数字长度：1~n，从1-9(输出从1-n，不是0-n所以dfs(0,1)时不需要特判0)， 10-99,100-999...构造字符串
             dfs(0, i);
         vector<int> res_int;
         for(int i=0; i<res.size(); i++)
