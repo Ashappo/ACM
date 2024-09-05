@@ -6,6 +6,7 @@ out/
 .idea
 src/
 untitled.iml
+lc.iml
 
 ### Eclipse ###
 .apt_generated
