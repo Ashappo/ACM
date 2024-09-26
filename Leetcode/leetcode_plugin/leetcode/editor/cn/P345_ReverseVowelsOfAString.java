@@ -65,14 +65,21 @@ class Solution {
     public String reverseVowels(String s) {
 		StringBuilder ss = new StringBuilder();
 		Stack<Character> stack = new Stack<>();
-        Character[] temp = {'a','e','i','o','u'};
+        Character[] temp = {'a','e','i','o','u', 'A', 'E', 'I', 'O', 'U'};
         HashSet<Character> set = new HashSet<>(Arrays.asList(temp));
-		for(int i = 0; i < s.length(); i++){
-			if(set.contains(Character.toLowerCase(s.charAt(i))))
-				stack.push(s.charAt(i));
+		// 压入元音字母（原大小写）
+		for (char c : s.toCharArray()) {
+			if (set.contains(c)) {
+				stack.push(c);
+			}
 		}
-		for(char c : s.toCharArray()){
-			ss.append(set.contains(Character.toLowerCase(c)) ? stack.pop() : c);
+		// 重建字符串
+		for (char c : s.toCharArray()) {
+			if (set.contains(c)) {
+				ss.append(stack.pop()); // 从栈中弹出元音
+			} else {
+				ss.append(c); // 保留其他字符
+			}
 		}
 		return ss.toString();
     }

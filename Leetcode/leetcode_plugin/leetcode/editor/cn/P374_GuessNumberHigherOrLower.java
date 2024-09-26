@@ -65,7 +65,7 @@ package leetcode.editor.cn;
 public class P374_GuessNumberHigherOrLower{
 	 public static void main(String[] args) {
 	 	 //测试代码
-	 	 Solution solution = new P374_GuessNumberHigherOrLower().new Solution();
+//	 	 Solution solution = new P374_GuessNumberHigherOrLower().new Solution();
 	 }
 	 
 //力扣代码
