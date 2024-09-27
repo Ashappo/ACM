@@ -51,20 +51,39 @@ package leetcode.editor.cn;
 /**
  * 最长和谐子序列
  * @author ambrose
- * @date 2024-09-29 15:43:21
+ * @date 2024-09-27 23:33:52
  */
- 
+
 public class P594_LongestHarmoniousSubsequence{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P594_LongestHarmoniousSubsequence().new Solution();
+		  int[] nums = {1,3,2,2,5,2,3,7};
+		  System.out.println(solution.findLHS(nums));
 	 }
 	 
 //力扣代码
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findLHS(int[] nums) {
-
+		int len = nums.length, cnt = 0, min = 0, max = 0;
+		if(len <= 1) return 0;
+		for(int left = 0; left < len - 1; left++){
+			int res = 1;
+			min = nums[left]; max = nums[left];
+			for(int j = left + 1; j < len; j++){
+				if(nums[j] > max && nums[j] - min == 1){
+					res++;
+					max = nums[j];
+				}
+				else if(nums[j] < min && max - nums[j] == 1){
+					res++;
+					min = nums[j];
+				}
+			}
+			cnt = Math.max(cnt, res);
+		}
+		return cnt;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
