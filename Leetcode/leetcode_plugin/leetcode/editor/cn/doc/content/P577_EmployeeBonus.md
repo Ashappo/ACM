@@ -78,7 +78,3 @@ Bonus table:
 
 </div>
 
-
-
-
-

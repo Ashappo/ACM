@@ -46,7 +46,10 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 两个列表的最小索引总和
@@ -64,17 +67,27 @@ public class P599_MinimumIndexSumOfTwoLists{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String[] findRestaurant(String[] list1, String[] list2) {
-		int ans = 0;
-		HashMap<String, Integer> map = new HashMap<>();
+		HashMap<String, Integer> map1 = new HashMap<>();
+		HashMap<String, Integer> map2 = new HashMap<>();
+		List<String> ls = new ArrayList<>();
 		for(int i = 0; i < list1.length; i++){
-			map.put(list1[i], i);
+			map1.put(list1[i], i);
 		}
 		for (int i = 0; i < list2.length; i++) {
-			if(map.get(list2[i]) != null)
-				map.put(list2[i], map.get(list2[i]) + i);
+			if(map1.get(list2[i]) != null)
+				map2.put(list2[i], map1.get(list2[i]) + i);
 		}
-
-		return map.get(list1[ans]);
+		if(map2.isEmpty()) return ls.toArray(new String[0]);
+		List<Map.Entry<String, Integer>> sortedList = new ArrayList<>(map2.entrySet());
+		sortedList.sort(Map.Entry.comparingByValue());
+		int temp = Integer.MAX_VALUE;
+		for(Map.Entry<String, Integer> entry : sortedList){
+			if(entry.getValue() <= temp){
+				temp = entry.getValue();
+				ls.add(entry.getKey());
+			}
+		}
+		return ls.toArray(new String[0]);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
