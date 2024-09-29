@@ -75,7 +75,7 @@ public class P2306_NamingACompany{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public long distinctNames(String[] ideas) {
-
+		return 1L;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
