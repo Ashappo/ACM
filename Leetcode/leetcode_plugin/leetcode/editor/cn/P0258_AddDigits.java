@@ -50,7 +50,7 @@ package leetcode.editor.cn;
 public class P0258_AddDigits{
 	 public static void main(String[] args) {
 	 	 //测试代码
-	 	 Solution solution = new P258_AddDigits().new Solution();
+	 	 Solution solution = new P0258_AddDigits().new Solution();
 	 }
 	 
 //力扣代码
