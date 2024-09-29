@@ -83,6 +83,7 @@ class Solution {
 			if(i > s.length() / 2){
 				if(s.charAt(i) != stack.pop())
 					return false;
+
 			}
 		}
 		return true;
