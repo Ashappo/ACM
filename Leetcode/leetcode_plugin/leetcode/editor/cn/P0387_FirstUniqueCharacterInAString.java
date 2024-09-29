@@ -54,6 +54,7 @@ public class P0387_FirstUniqueCharacterInAString{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P0387_FirstUniqueCharacterInAString().new Solution();
+
 	 }
 	 
 //力扣代码
