@@ -57,34 +57,29 @@ public class P0680_ValidPalindromeIi{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P0680_ValidPalindromeIi().new Solution();
-		  String s = "abc";
-		  System.out.println(solution.isPalindrome(s));
+		  String s = "cbbcc";
+		  System.out.println(solution.validPalindrome(s));
 	 }
 	 
 //力扣代码
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean validPalindrome(String s) {
-		boolean flag = false;
-		for(int i = 0; i < s.length(); i++){
-			s = s.substring(0, i) + s.substring(i + 1);
-			if(isPalindrome(s))
-				return true;
-		}
-		return flag;
-    }
-	public boolean isPalindrome(String s){
-		Stack<Character> stack = new Stack<>();
-		if(s.length() == 2 && s.charAt(0) != s.charAt(1))
-			return false;
-		for(int i = 0; i < s.length(); i++){
-			if(i < s.length() / 2)
-				stack.push(s.charAt(i));
-			if(i > s.length() / 2){
-				if(s.charAt(i) != stack.pop())
-					return false;
-
+		int left = 0, right = s.length() - 1;
+		while(left < right){
+			if(s.charAt(left) != s.charAt(right)){
+				return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right -1);
 			}
+			left++; right--;
+		}
+		return true;
+    }
+	public boolean isPalindrome(String s, int left, int right){
+		while(left < right){
+			if(s.charAt(left) != s.charAt(right)){
+				return false;
+			}
+			left++; right--;
 		}
 		return true;
 	}
