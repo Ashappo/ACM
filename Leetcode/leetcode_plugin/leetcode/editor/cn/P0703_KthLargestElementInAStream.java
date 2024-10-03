@@ -74,7 +74,7 @@ import java.util.PriorityQueue;
 public class P0703_KthLargestElementInAStream{
 	 public static void main(String[] args) {
 	 	 //测试代码
-	 	 Solution solution = new P0703_KthLargestElementInAStream().new Solution();
+//	 	 Solution solution = new P0703_KthLargestElementInAStream().new Solution();
 	 }
 	 
 //力扣代码

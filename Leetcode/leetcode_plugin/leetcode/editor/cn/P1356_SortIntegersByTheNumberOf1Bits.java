@@ -78,7 +78,7 @@ public class P1356_SortIntegersByTheNumberOf1Bits{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] sortByBits(int[] arr) {
-
+		return new int[]{-1};
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
