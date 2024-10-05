@@ -80,6 +80,8 @@ public class P0804_UniqueMorseCodeWords{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P0804_UniqueMorseCodeWords().new Solution();
+		  String[] words = {"gin", "zen", "gig", "msg"};
+		  System.out.println(solution.uniqueMorseRepresentations(words));
 	 }
 	 
 //力扣代码
