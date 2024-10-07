@@ -67,13 +67,29 @@ public class P0941_ValidMountainArray{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P0941_ValidMountainArray().new Solution();
+		  int[] arr = new int[]{0,3,2,1};
+		  System.out.println(solution.validMountainArray(arr));
 	 }
 	 
 //力扣代码
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean validMountainArray(int[] arr) {
-
+		int flag = 0;
+		if(arr.length < 3)
+			return false;
+		int i = 1;
+		while (i < arr.length && arr[i] - arr[i - 1] > 0){
+			i++;
+			if(flag == 0)
+				flag++;
+		}
+		while (i < arr.length && arr[i] - arr[i - 1] < 0){
+			i++;
+			if(flag == 1)
+				flag++;
+		}
+		return i == arr.length && flag == 2;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
