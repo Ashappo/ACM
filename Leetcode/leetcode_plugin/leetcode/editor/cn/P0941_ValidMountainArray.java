@@ -80,14 +80,16 @@ class Solution {
 			return false;
 		int i = 1;
 		while (i < arr.length && arr[i] - arr[i - 1] > 0){
-			i++;
-			if(flag == 0)
+			if(flag == 0) {
 				flag++;
+			}
+			i++;
 		}
 		while (i < arr.length && arr[i] - arr[i - 1] < 0){
-			i++;
-			if(flag == 1)
+			if(flag == 1) {
 				flag++;
+			}
+			i++;
 		}
 		return i == arr.length && flag == 2;
     }
