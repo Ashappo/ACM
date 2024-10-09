@@ -48,7 +48,7 @@
 //
 // Related Topics数组 | 哈希表 | 字符串 
 //
-// 👍 153, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 157, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
@@ -57,23 +57,39 @@
 
 package leetcode.editor.cn;
 
+import java.util.*;
+
 /**
  * 旅行终点站
  * @author ambrose
- * @date 2024-10-08 10:41:25
+ * @date 2024-10-08 19:57:06
  */
 
 public class P1436_DestinationCity{
 	 public static void main(String[] args) {
 	 	 //测试代码
 	 	 Solution solution = new P1436_DestinationCity().new Solution();
+		 List<List<String>> paths = new ArrayList<>();
+		 paths.add(Arrays.asList("London", "New York"));
+		 paths.add(Arrays.asList("New York", "Lima"));
+		 paths.add(Arrays.asList("Lima","Sao Paulo"));
+		 System.out.println(solution.destCity(paths));
 	 }
 	 
 //力扣代码
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String destCity(List<List<String>> paths) {
-
+		HashSet<String> map = new HashSet<>();
+		for (List<String> s : paths){
+			map.add(s.get(0));
+		}
+		String ans = "";
+		for (List<String> s : paths){
+			if(!map.contains(s.get(1)))
+				return s.get(1);
+		}
+		return "";
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
