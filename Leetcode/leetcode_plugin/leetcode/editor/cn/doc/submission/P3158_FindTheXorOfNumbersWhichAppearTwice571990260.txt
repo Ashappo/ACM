@@ -1,0 +1,17 @@
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+		int ans = 0;
+		HashSet<Integer> set = new HashSet<>();
+		for (int c : nums){
+			if(!set.contains(c))
+				set.add(c);
+			else {
+				ans ^= c;
+			}
+		}
+		return ans;
+    }
+}
+
+//runtime:2 ms
+//memory:42.1 MB
