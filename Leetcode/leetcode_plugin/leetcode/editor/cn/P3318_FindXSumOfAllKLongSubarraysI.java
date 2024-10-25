@@ -90,6 +90,7 @@ class Solution {
 				PriorityQueue<Integer> pq = new PriorityQueue<>();
 			}
 		}
+		return new int[0];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
