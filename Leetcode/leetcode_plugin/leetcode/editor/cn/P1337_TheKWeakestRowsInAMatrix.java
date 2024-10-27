@@ -71,6 +71,9 @@
 
 package leetcode.editor.cn;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * 矩阵中战斗力最弱的 K 行
  * @author ambrose
@@ -88,18 +91,21 @@ public class P1337_TheKWeakestRowsInAMatrix{
 class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
         int m = mat.length, n =  mat[0].length;
-        int[] res = new int[m];
+        int[][] res = new int[m][2];
         for(int i = 0; i < m; i++){
             int temp = 0;
             for(int j = 0; j < n; j++){
                 temp += mat[i][j];
             }
-            res[i] = temp;
+            res[i][0] = i;
+            res[i][1] = temp;
         }
+        Arrays.sort(res, (a, b) -> a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]);
         int[] ans = new int[k];
-        for(int i = 0, temp = 0; i < m; i++){
-
+        for(int i = 0; i < k; i++){
+            ans[i] = res[i][0];
         }
+        return ans;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
