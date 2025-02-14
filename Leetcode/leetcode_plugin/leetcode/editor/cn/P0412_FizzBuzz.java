@@ -54,29 +54,30 @@ import java.util.List;
 
 /**
  * Fizz Buzz
+ *
  * @author ambrose
  * @date 2024-09-17 10:12:49
  */
-public class P0412_FizzBuzz{
-	 public static void main(String[] args) {
-	 	 //测试代码
-	 	 Solution solution = new P0412_FizzBuzz().new Solution();
-	 }
-	 
-//力扣代码
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public List<String> fizzBuzz(int n) {
-		List<String> res = new ArrayList<>();
-		for(int i = 1; i <= n; i++){
-			if(i%3 == 0 && i%5 ==0) res.add("FizzBuzz");
-			else if(i%3 == 0) res.add("Fizz");
-			else if(i%5 ==0) res.add("Buzz");
-			else res.add(String.valueOf(i));
-		}
-		return res;
+public class P0412_FizzBuzz {
+    public static void main(String[] args) {
+        //测试代码
+        Solution solution = new P0412_FizzBuzz().new Solution();
     }
-}
+
+    //力扣代码
+//leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public List<String> fizzBuzz(int n) {
+            List<String> res = new ArrayList<>();
+            for (int i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) res.add("FizzBuzz");
+                else if (i % 3 == 0) res.add("Fizz");
+                else if (i % 5 == 0) res.add("Buzz");
+                else res.add(String.valueOf(i));
+            }
+            return res;
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

@@ -41,32 +41,33 @@ package leetcode.editor.cn;
 
 /**
  * 数字转换为十六进制数
+ *
  * @author ambrose
  * @date 2024-09-26 12:31:31
  */
- 
-public class P0405_ConvertANumberToHexadecimal{
-	 public static void main(String[] args) {
-	 	 //测试代码
-	 	 Solution solution = new P0405_ConvertANumberToHexadecimal().new Solution();
-	 }
-	 
-//力扣代码
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public String toHex(int num) {
-		//用二进制与运算，并且无符号移位，可以利用计算机中二进制自带的符号位进行处理。无需特别补码处理。
-		if(num == 0) return "0";
-		StringBuilder sb = new StringBuilder();
-		while(num != 0){
-			int cnt = num & 15;
-			char c = cnt < 10 ? (char) (cnt + '0') : (char) (cnt - 10 + 'a');
-			sb.insert(0, c);
-			num >>>= 4;
-		}
-		return sb.toString();
+
+public class P0405_ConvertANumberToHexadecimal {
+    public static void main(String[] args) {
+        //测试代码
+        Solution solution = new P0405_ConvertANumberToHexadecimal().new Solution();
     }
-}
+
+    //力扣代码
+//leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public String toHex(int num) {
+            //用二进制与运算，并且无符号移位，可以利用计算机中二进制自带的符号位进行处理。无需特别补码处理。
+            if (num == 0) return "0";
+            StringBuilder sb = new StringBuilder();
+            while (num != 0) {
+                int cnt = num & 15;
+                char c = cnt < 10 ? (char) (cnt + '0') : (char) (cnt - 10 + 'a');
+                sb.insert(0, c);
+                num >>>= 4;
+            }
+            return sb.toString();
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
